@@ -3,6 +3,18 @@
 
 #pragma once
 
-#define TRI_LAYER_LOWER_LAYER 2
-#define TRI_LAYER_UPPER_LAYER 3
-#define TRI_LAYER_ADJUST_LAYER 4
+/* The way how "handedness" is decided (which half is which),
+see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
+for more options.
+*/
+/* #define IGNORE_MOD_TAP_INTERRUPT */
+#undef  TAPPING_TERM
+#define TAPPING_TERM 200
+#undef  TAPPING_TOGGLE
+#define TAPPING_TOGGLE 3
+#define WPM_SAMPLE_PERIODS 50
+/* #define PERMISSIVE_HOLD_PER_KEY */
+#define UNICODE_SELECTED_MODES UNICODE_MODE_LINUX, UNICODE_MODE_WINCOMPOSE
+#define SPLIT_USB_DETECT
+#define DEBOUNCE 10
+
