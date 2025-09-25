@@ -293,6 +293,9 @@ static void print_status_narrow(void) {
         case _NUSY3:
             oled_write_P(PSTR("NuSy3"), false);
             break;
+        case _VIM:
+            oled_write_ln_P(PSTR("Vim"), false);
+            break;
         default:
             oled_write_P(PSTR("Undef"), false);
 						break;
