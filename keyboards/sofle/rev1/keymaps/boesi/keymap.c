@@ -262,15 +262,6 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 };
 #endif
 
-/* #if defined(COMBO_ENABLE) */
-const uint16_t PROGMEM combo_esc[] = {KC_W, ALT_T(KC_S), COMBO_END};
-const uint16_t PROGMEM combo_colon[] = {KC_E, CTL_T(KC_D), COMBO_END};
-const uint16_t PROGMEM combo_enter[] = {KC_R, SFT_T(KC_F), COMBO_END};
-
-combo_t key_combos[] = {
-};
-/* #endif */
-
 #ifdef OLED_ENABLE
 
 static void render_logo(void) {
