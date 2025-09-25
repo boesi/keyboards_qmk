@@ -268,9 +268,6 @@ const uint16_t PROGMEM combo_colon[] = {KC_E, CTL_T(KC_D), COMBO_END};
 const uint16_t PROGMEM combo_enter[] = {KC_R, SFT_T(KC_F), COMBO_END};
 
 combo_t key_combos[] = {
-	COMBO(combo_esc, KC_ESC),
-	COMBO(combo_colon, KC_COLN),
-	COMBO(combo_enter, KC_ENT),
 };
 /* #endif */
 
