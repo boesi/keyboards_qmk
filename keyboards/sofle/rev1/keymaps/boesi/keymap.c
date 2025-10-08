@@ -107,9 +107,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------|                       |--------+--------+--------+--------+--------+--------|
  * |  Tab   |    Q   |    W   | VIM/E  |    R   |    T   |                       |    Y   |    U   |    I   |    O   |    P   |    Ü   |
  * |--------+--------+--------+--------+--------+--------|                       |--------+--------+--------+--------+--------+--------|
- * |   :    |    A   |    S   |    D   |    F   |    G   |---------.   ,---------|    H   |    J   |    K   |    L   |    Ö   |    Ä   |
+ * |   '"   |    A   |    S   |    D   |    F   |    G   |---------.   ,---------|    H   |    J   |    K   |    L   |    Ö   |    Ä   |
  * |--------+--------+--------+--------+--------+--------|   MUTE  |   |  LClck  |--------+--------+--------+--------+--------+--------|
- * |  ESC   |    Z   |    X   |    C   |    V   |    B   |---------|   |---------|    N   |    M   |   ,<   |   .>   |   ;:   |   '"   |
+ * |        |    Z   |    X   |    C   |    V   |    B   |---------|   |---------|    N   |    M   |   ,<   |   .>   |   ;:   |    ß   |
  * `-----------------------------------------------------/        /     \        \-----------------------------------------------------'
  *                |        |        |  BKSP  |        | / Space  /       \ Enter  \ |        |  DEL   |        |         |
  *                |  LGUI  |  LAlt  |  LCTR  |  NuSy1 |/ LSHIFT /         \ RSHIFT \|   FN   |  RCTR  |  RAlt  |   RGUI  |
@@ -118,8 +118,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT(
     _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_ß,
      KC_TAB,    KC_Q,  KC_W, LT(_VIM,KC_E), KC_R,   KC_T,                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_Ü,
-    KC_COLN, GUI_T(KC_A), ALT_T(KC_S), CTL_T(KC_D), SFT_T(KC_F), KC_G,                            KC_H, SFT_T(KC_J), CTL_T(KC_K), ALT_T(KC_L),    KC_Ö,    KC_Ä,
-     KC_ESC,        KC_Z,        KC_X,        KC_C,        KC_V, KC_B, KC_MUTE,       KC_MS_BTN1, KC_N,        KC_M,     KC_COMM,      KC_DOT, KC_SCLN, KC_QUOT,
+    KC_QUOT, GUI_T(KC_A), ALT_T(KC_S), CTL_T(KC_D), SFT_T(KC_F), KC_G,                            KC_H, SFT_T(KC_J), CTL_T(KC_K), ALT_T(KC_L),    KC_Ö,    KC_Ä,
+    _______,        KC_Z,        KC_X,        KC_C,        KC_V, KC_B, KC_MUTE,       KC_MS_BTN1, KC_N,        KC_M,     KC_COMM,      KC_DOT, KC_SCLN, KC_ß,
     KC_LGUI, KC_LALT, LCTL_T(KC_BSPC), TT(_NUSY1), LSFT_T(KC_SPC),    RSFT_T(KC_ENT),  TT(_FN), RCTL_T(KC_DEL), KC_RALT, KC_RGUI
 ),
 /* NumSym1
