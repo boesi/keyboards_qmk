@@ -10,6 +10,7 @@ enum sofle_layers {
     _NUSY3,
     _VIM,
     _FN,
+    _MOUSE,
     _Template
 };
 
@@ -216,8 +217,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    | RClck |------+------+------+------+------+------|
  * |      | XXXX | XXXX | XXXX | XXXX | Menu |-------|    |-------| HOME | PGDN | PGUP | End  | XXXX |      |
  * `-----------------------------------------/      /      \      \-----------------------------------------'
- *            |      |      | BKSP |      | /Enter /        \Space \ |      | DEL  |      |      |
- *            | LGUI | LAlt | LCTR | XXXX |/Enter /          \Space \|  FN  | RCTR | RAlt | RGUI |
+ *            |      |      |      |      | /Enter /        \Space \ |      | DEL  |      |      |
+ *            | LGUI | LAlt | MOUS | XXXX |/Enter /          \Space \|  FN  | RCTR | RAlt | RGUI |
  *            `----------------------------------'            '------''---------------------------'
  */
 [_FN] = LAYOUT(
@@ -225,7 +226,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   UC_NEXT, XXXXXXX, XXXXXXX, XXXXXXX,  KC_INS, KC_CAPS,                         KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
   _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  KC_TAB,                       KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  KC_TAB, XXXXXXX,
   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_APP, KC_MPLY,  KC_MS_BTN2, KC_HOME, KC_PGDN, KC_PGUP,  KC_END, XXXXXXX, _______,
-                    _______, _______, _______, XXXXXXX, _______,     _______, _______, _______, _______, _______
+                    _______, _______, TG(_MOUSE), XXXXXXX, _______,     _______, _______, _______, _______, _______
+),
+/* Mouse
+ * ,-----------------------------------------------------.                       ,-----------------------------------------------------.
+ * |        |        |        |        |        |        |                       |        |        |        |        |        |        |
+ * |--------+--------+--------+--------+--------+--------|                       |--------+--------+--------+--------+--------+--------|
+ * |        |        |        |        |        |        |                       |        |        |  Up    |        |        |        |
+ * |--------+--------+--------+--------+--------+--------|                       |--------+--------+--------+--------+--------+--------|
+ * |        |  Gui   |  Alt   |  Ctrl  |  Shift |        |---------.   ,---------|        |  Left  |  Down  |  Right |        |        |
+ * |--------+--------+--------+--------+--------+--------|         |   |         |--------+--------+--------+--------+--------+--------|
+ * |        |        |        |        |        |        |---------|   |---------|        |        |        |        |        |        |
+ * `-----------------------------------------------------/        /     \        \-----------------------------------------------------'
+ *                |        |        |        |        | /        /       \        \ |        |        |        |        |
+ *                |        |        | Btn_L  | Btn_M  |/ Btn_R  /         \        \|        |        |        |        |
+ *                `--------------------------------------------'           '--------------------------------------------'
+ */
+[_MOUSE] = LAYOUT(
+    _______, _______, _______, _______, _______, _______,                         _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,                         _______, _______,   MS_UP, _______, _______, _______,
+    _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _______,                         _______, MS_LEFT, MS_DOWN, MS_RGHT, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______, _______, _______,
+                   _______, _______, MS_BTN1, MS_BTN3, MS_BTN2,             _______, TG(_MOUSE), _______, _______, _______
 ),
 /* Template
  * ,-----------------------------------------------------.                       ,-----------------------------------------------------.
@@ -258,6 +280,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 	[_NUSY3]    = {ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______)},
 	[_VIM]      = {ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______)},
 	[_FN]       = {ENCODER_CCW_CW(KC_MFFD, KC_MRWD), ENCODER_CCW_CW(KC_MS_WH_RIGHT, KC_MS_WH_LEFT)},
+	[_MOUSE]    = {ENCODER_CCW_CW(KC_VOLU, KC_VOLD), ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN)},
 	[_Template] = {ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______)},
 };
 #endif
@@ -292,6 +315,9 @@ static void print_status_narrow(void) {
             break;
         case _NUSY3:
             oled_write_P(PSTR("NuSy3"), false);
+            break;
+        case _MOUSE:
+            oled_write_ln_P(PSTR("Mouse"), false);
             break;
         case _VIM:
             oled_write_ln_P(PSTR("Vim"), false);
