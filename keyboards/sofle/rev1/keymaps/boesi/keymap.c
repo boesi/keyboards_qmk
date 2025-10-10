@@ -317,7 +317,7 @@ static void print_status_narrow(void) {
             oled_write_P(PSTR("NuSy3"), false);
             break;
         case _MOUSE:
-            oled_write_ln_P(PSTR("Mouse"), false);
+            oled_write_P(PSTR("Mouse"), false);
             break;
         case _VIM:
             oled_write_ln_P(PSTR("Vim"), false);
